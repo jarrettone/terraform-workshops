@@ -13,3 +13,6 @@ resource "aws_s3_bucket_object" "user_student_alias_object" {
 }
 
 resource "aws_s3_bucket_object" "an_invalid_resource_definition" {
+  key     = "student.alias"
+  content = "This bucket is reserved for ${var.student_alias}"
+}
