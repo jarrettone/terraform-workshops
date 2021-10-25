@@ -22,6 +22,12 @@ sudo yum -y install jq
 curl -O https://releases.hashicorp.com/terraform/0.12.31/terraform_0.12.31_linux_amd64.zip
 sudo unzip -o terraform_0.12.31_linux_amd64.zip -d /usr/bin/
 
+sudo yum install -y vault
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --help
+
 ## Pull Repo
 #############
 
@@ -32,11 +38,13 @@ git clone https://github.com/Gowiem/terraform-workshops .
 ## Default Our Region
 ######################
 
-# Set our AWS_DEFAULT_REGION for this terminal session
+# Set our AWS Region for this terminal session
 export AWS_DEFAULT_REGION=us-east-2
+export AWS_REGION=us-east-2
 
 # Set our AWS_DEFAULT_REGION for the future as well
 echo "export AWS_DEFAULT_REGION=us-east-2" >>~/.bash_profile
+echo "export AWS_REGION=us-east-2" >>~/.bash_profile
 
 ## Setup Instructor Prompt
 ###########################
